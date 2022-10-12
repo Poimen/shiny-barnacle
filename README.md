@@ -6,7 +6,7 @@ This could have used the Argo AutoPilot project, but this is also an exercise of
 
 ## Platform
 
-For local testing [k3d](https://k3d.io/) is used with Rancher Desktop. This runs a k3s cluster in docker. The install method for this is [here](./bootstrap-bill/k3d/argocd/README.md).
+For local testing [k3d](https://k3d.io/) is used with Rancher Desktop. This runs a k3s cluster in docker. The install method for this is [here](./bootstrap-bill/k3d/argocd).
 
 ## ArgoCD
 
@@ -19,4 +19,4 @@ TODO: More to come ...
 
 ### Notes
 
-Running Rancher Desktop with its built-in Kubernetes release did not want to enable network comms. If this gets resolved, it should be simple enough to transition to that as they use the `k3` framework.
+Running Rancher Desktop with its built-in Kubernetes release did not want to enable network comms. If this gets resolved, it should be simple enough to transition to that as they use the `k3s` framework.
