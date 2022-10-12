@@ -1,12 +1,12 @@
 # IDP
 
-This is a test repo for things relating to ArgoCD.
+This is a test repo for things relating to [ArgoCD](https://argoproj.github.io/cd).
 
 This could have used the Argo AutoPilot project, but this is also an exercise of installing the understanding ArgoCD by building it separately. If this is a production instance or support, please use the [AutoPilot project](https://argocd-autopilot.readthedocs.io/).
 
 ## Platform
 
-For local testing [k3d](https://k3d.io/) is used with Rancher Desktop.
+For local testing [k3d](https://k3d.io/) is used with Rancher Desktop. This runs a k3s cluster in docker. The install method for this is [here](./k3d/argocd/README.md).
 
 ## ArgoCD
 
