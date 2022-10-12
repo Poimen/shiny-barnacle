@@ -4,7 +4,8 @@
 
 ## Installation
 
-The getting started guide was used:
+The installation uses Kustomize to run ArgoCD behind Traefik on k3d.
+
 > kubectl apply -k installation
 
 Wait for all the pods to go into the "Running" state.
@@ -22,8 +23,4 @@ The default install password can be found by running:
 
 ## Uninstall
 
-Remove Ingress:
-> kubectl delete -f ingress-route.yaml
-
-Remove ArgoCD:
 > kubectl delete -k installation

@@ -6,7 +6,7 @@ This could have used the Argo AutoPilot project, but this is also an exercise of
 
 ## Platform
 
-For local testing [k3d](https://k3d.io/) is used with Rancher Desktop. This runs a k3s cluster in docker. The install method for this is [here](./k3d/argocd/README.md).
+For local testing [k3d](https://k3d.io/) is used with Rancher Desktop. This runs a k3s cluster in docker. The install method for this is [here](./bootstrap-bill/k3d/argocd/README.md).
 
 ## ArgoCD
 
