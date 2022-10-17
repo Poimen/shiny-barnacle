@@ -1,0 +1,57 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  creationTimestamp: null
+  name: infra
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: infrastructure project
+  destinations:
+  - namespace: infra
+    server: https://kubernetes.default.svc
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - '*'
+status: {}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  creationTimestamp: null
+  name: infra
+  namespace: argocd
+spec:
+  generators:
+  - git:
+    repoURL: https://github.com/Poimen/shiny-barnacle.git
+    revision: HEAD
+    directories:
+    - path: apps/infra/*
+    requeueAfterSeconds: 20
+  template:
+    metadata:
+      name: '{{path.basename}}'
+      namespace: infra
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/Poimen/shiny-barnacle.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
