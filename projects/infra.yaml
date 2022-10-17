@@ -1,3 +1,4 @@
+---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
@@ -30,11 +31,11 @@ metadata:
 spec:
   generators:
   - git:
-    repoURL: https://github.com/Poimen/shiny-barnacle.git
-    revision: HEAD
-    directories:
-    - path: apps/infra/*
-    requeueAfterSeconds: 20
+      repoURL: https://github.com/Poimen/shiny-barnacle.git
+      revision: HEAD
+      directories:
+      - path: apps/infra/*
+      requeueAfterSeconds: 20
   template:
     metadata:
       name: '{{path.basename}}'
@@ -55,3 +56,4 @@ spec:
           allowEmpty: true
           prune: true
           selfHeal: true
+status: {}
