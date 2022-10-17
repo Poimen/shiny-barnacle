@@ -41,14 +41,14 @@ spec:
       name: '{{path.basename}}'
       namespace: infra
     spec:
-      project: default
+      project: infra
       source:
         repoURL: https://github.com/Poimen/shiny-barnacle.git
         targetRevision: HEAD
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'
+        namespace: infra
       syncPolicy:
         syncOptions:
         - CreateNamespace=true
