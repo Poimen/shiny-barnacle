@@ -6,7 +6,7 @@ metadata:
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: secrets-reader
+  name: secrets-manager
 rules:
 - apiGroups: [""] # "" indicates the core API group
   resources: ["secrets"]
@@ -20,7 +20,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: secrets-reader
+  name: secrets-manager
 subjects:
 - kind: ServiceAccount
   name: sa-infra
@@ -29,7 +29,7 @@ subjects:
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: sealed-secrets-reader
+  name: sealed-secrets-manager
 rules:
 - apiGroups: ["bitnami.com"]
   resources: ["sealedsecrets"]
@@ -43,7 +43,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: secrets-reader
+  name: sealed-secrets-manager
 subjects:
 - kind: ServiceAccount
   name: sa-infra
