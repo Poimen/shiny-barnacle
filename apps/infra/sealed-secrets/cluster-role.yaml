@@ -25,3 +25,26 @@ subjects:
 - kind: ServiceAccount
   name: sa-infra
   namespace: infra
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: sealed-secrets-reader
+rules:
+- apiGroups: ["bitnami.com"]
+  resources: ["sealedsecrets"]
+  verbs:  ["get", "list", "watch", "create", "update", "patch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: sa-infra-sealed-secrets
+  namespace: default
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: secrets-reader
+subjects:
+- kind: ServiceAccount
+  name: sa-infra
+  namespace: infra
